@@ -7,140 +7,330 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-#dm-auto-mockup,#dm-auto-mockup *{box-sizing:border-box}#dm-auto-mockup{--accent:#b88a3b;--navy:#112b4d;font-family:Pretendard,sans-serif;color:#172033;background:#eef2f7;padding:24px;min-height:100vh}#dm-auto-mockup button,#dm-auto-mockup input,#dm-auto-mockup textarea,#dm-auto-mockup select{font:inherit}.dm-shell{max-width:1500px;margin:auto;display:grid;grid-template-columns:350px minmax(0,1fr);gap:22px}.dm-panel,.dm-stage{background:#fff;border:1px solid #dde3eb;border-radius:20px;box-shadow:0 12px 36px rgba(20,40,70,.08)}.dm-panel{padding:23px;align-self:start;position:sticky;top:18px}.dm-panel h2{margin:0 0 5px;font-size:22px}.dm-help{margin:0 0 20px;color:#748092;font-size:13px;line-height:1.55}.dm-field{margin-top:14px}.dm-field label{display:block;margin-bottom:7px;font-size:13px;font-weight:700}.dm-field input,.dm-field textarea,.dm-field select{width:100%;border:1px solid #d7dde6;border-radius:10px;padding:11px 12px;color:#202b3c;background:#fff;outline:none}.dm-field textarea{height:72px;resize:vertical}.dm-field input:focus,.dm-field textarea:focus,.dm-field select:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 14%,transparent)}.dm-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.dm-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}.dm-btn{border:0;border-radius:11px;padding:12px 10px;font-weight:800;cursor:pointer}.dm-generate{background:var(--navy);color:#fff}.dm-download{background:#e9eef5;color:#1d304a}.dm-stage{padding:18px;min-width:0}.dm-stage-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.dm-stage-head strong{font-size:15px}.dm-tabs{display:flex;gap:7px;overflow:auto;padding-bottom:2px}.dm-tab{border:1px solid #dce3ec;background:#fff;border-radius:999px;padding:8px 13px;white-space:nowrap;cursor:pointer;font-size:12px;font-weight:700}.dm-tab.on{background:var(--navy);border-color:var(--navy);color:#fff}.dm-device{padding:10px;background:#202733;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.15)}.dm-browser{height:34px;background:#edf1f5;border-radius:9px 9px 0 0;display:flex;align-items:center;gap:6px;padding:0 12px}.dm-dot{width:8px;height:8px;border-radius:50%;background:#b7c0cb}.dm-url{margin-left:8px;background:#fff;border:1px solid #d8dfe8;border-radius:6px;width:42%;height:20px}.dm-canvas{background:#fff;min-height:670px;overflow:hidden}.site-head{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid rgba(0,0,0,.07)}.site-logo{font-size:18px;font-weight:900;color:var(--navy)}.site-nav{display:flex;gap:26px;font-size:13px;font-weight:700}.site-nav span:last-child{color:var(--accent)}.hero{min-height:390px;padding:68px 7%;display:flex;align-items:center;color:#fff;background:linear-gradient(125deg,rgba(5,20,42,.96),rgba(18,58,102,.82)),radial-gradient(circle at 80% 20%,var(--accent),transparent 42%)}.hero-in{max-width:690px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;color:#ead7ae}.hero h1{margin:13px 0 18px;font-size:46px;line-height:1.12;letter-spacing:-2.5px}.hero p{margin:0;max-width:620px;color:rgba(255,255,255,.79);line-height:1.75}.hero-btns{display:flex;gap:10px;margin-top:28px}.site-btn{padding:12px 18px;border-radius:8px;background:var(--accent);color:#fff;font-size:13px;font-weight:800}.site-btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.42)}.site-section{padding:45px 7%}.section-title{text-align:center;margin-bottom:28px}.section-title small{color:var(--accent);font-weight:800;letter-spacing:1.5px}.section-title h2{font-size:28px;margin:8px 0;color:var(--navy)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{border:1px solid #e5e9ef;border-radius:14px;padding:22px;background:#fff}.card i{display:flex;width:39px;height:39px;border-radius:10px;background:color-mix(in srgb,var(--accent) 15%,white);color:var(--accent);align-items:center;justify-content:center;font-style:normal;font-weight:900}.card h3{margin:16px 0 8px;font-size:17px;color:var(--navy)}.card p{font-size:12px;color:#7a8491;line-height:1.65;margin:0}.page-hero{padding:52px 7%;color:#fff;background:linear-gradient(125deg,#091c35,var(--navy))}.page-hero small{color:#e4c687}.page-hero h1{margin:10px 0 5px;font-size:36px}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.visual{height:230px;border-radius:18px;background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 34%,#0a2343),#07182f);position:relative;overflow:hidden}.visual:after{content:"";position:absolute;width:180px;height:180px;border:35px solid rgba(255,255,255,.15);border-radius:50%;right:-25px;top:25px}.copy h2{font-size:29px;color:var(--navy);margin:0 0 14px}.copy p{color:#647082;line-height:1.8}.faq{max-width:760px;margin:auto}.faq div{padding:17px 4px;border-bottom:1px solid #e3e8ef;font-weight:700;color:#263a55}.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px}.contact-card{background:var(--navy);color:#fff;padding:28px;border-radius:16px}.fake-form{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fake-form span{height:43px;border:1px solid #dce2e9;border-radius:8px;padding:12px;color:#8a94a2;font-size:12px}.fake-form span:last-child{grid-column:1/-1;height:90px}.dm-empty{text-align:center;padding:190px 20px;color:#8993a1}.dm-status{font-size:12px;color:#6f7a89}.dm-hidden{display:none!important}
-@media(max-width:900px){#dm-auto-mockup{padding:12px}.dm-shell{grid-template-columns:1fr}.dm-panel{position:static}.dm-canvas{min-height:610px}.site-nav{display:none}.hero h1{font-size:34px}.cards{grid-template-columns:1fr}.about-grid,.contact-grid{grid-template-columns:1fr}.dm-device{overflow:auto}.dm-canvas{min-width:700px}}
-@media(max-width:600px){#dm-auto-mockup{padding:8px}.dm-shell{gap:12px}.dm-panel{padding:14px;border-radius:14px}.dm-panel h2{font-size:17px}.dm-help{font-size:11px;margin-bottom:8px}.dm-field{margin-top:10px}.dm-field label{font-size:11px}.dm-field input,.dm-field textarea,.dm-field select{font-size:13px;padding:9px 10px}.dm-row{grid-template-columns:1fr}.dm-actions{grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.dm-btn{padding:12px 8px;font-size:13px}.dm-stage{padding:10px;border-radius:14px}.dm-stage-head{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:10px}.dm-tabs{gap:5px}.dm-tab{font-size:11px;padding:6px 10px}.dm-device{padding:6px;border-radius:12px}.dm-browser{height:26px}.dm-canvas{min-width:600px;min-height:500px}}
-#dm-auto-mockup .dm-designbar .dm-extra{flex:1;min-width:420px}#dm-auto-mockup .dm-designbar .dm-extra textarea{width:100%;height:58px!important;min-height:58px;padding:8px 10px;font-size:10px;line-height:1.5;resize:vertical;border:1px solid #d7dde6;border-radius:7px}
-#dm-auto-mockup .dm-designbar .dm-actions{display:flex;flex:0 0 auto;gap:6px;margin:0 0 0 auto;align-self:center}#dm-auto-mockup .dm-designbar .dm-actions .dm-btn{min-width:92px;white-space:nowrap;padding:9px 11px}#dm-auto-mockup .dm-designbar .dm-note{margin:0 0 4px 0!important}
-</style>
-<style>
-#dm-auto-mockup .dm-panel details{margin-top:10px;border:1px solid #e0e5ec;border-radius:11px;background:#fafbfd}#dm-auto-mockup .dm-panel summary{padding:12px 13px;cursor:pointer;font-size:13px;font-weight:900;color:#24364e;list-style:none}#dm-auto-mockup .dm-panel summary:after{content:'＋';float:right;color:#8490a0}#dm-auto-mockup .dm-panel details[open] summary:after{content:'－'}#dm-auto-mockup .dm-group{padding:0 12px 13px}#dm-auto-mockup .dm-note{font-size:11px;color:#8791a0;line-height:1.5;margin:5px 0 0}#dm-auto-mockup .topbar{height:34px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:flex-end;gap:20px;padding:0 6%;font-size:10px}#dm-auto-mockup .hero-photo{min-height:430px;background-size:cover!important;background-position:center!important}#dm-auto-mockup .home-section{padding:58px 7%}#dm-auto-mockup .home-section.alt{background:#f5f7fb}#dm-auto-mockup .intro-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:42px;align-items:center}#dm-auto-mockup .intro-art{height:275px;border-radius:18px;background-size:cover!important;background-position:center!important;box-shadow:0 18px 45px rgba(10,30,60,.16)}#dm-auto-mockup .kicker{color:var(--accent);font-size:11px;font-weight:900;letter-spacing:1.8px}#dm-auto-mockup .intro-copy h2,#dm-auto-mockup .home-title h2{margin:9px 0 15px;font-size:30px;color:var(--navy);letter-spacing:-1.2px}#dm-auto-mockup .intro-copy p,#dm-auto-mockup .home-title p{color:#6c7786;line-height:1.8;font-size:13px}#dm-auto-mockup .home-title{text-align:center;max-width:700px;margin:0 auto 30px}#dm-auto-mockup .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}#dm-auto-mockup .service-item{padding:23px;border-radius:14px;border:1px solid #e0e6ee;background:#fff;min-height:150px}#dm-auto-mockup .service-item b{display:block;color:var(--navy);font-size:16px;margin:13px 0 7px}#dm-auto-mockup .service-item em{display:flex;width:36px;height:36px;align-items:center;justify-content:center;border-radius:9px;background:color-mix(in srgb,var(--accent) 14%,white);color:var(--accent);font-style:normal;font-weight:900}#dm-auto-mockup .service-item p{margin:0;color:#788392;font-size:11px;line-height:1.65}#dm-auto-mockup .stat-row{display:grid;grid-template-columns:repeat(4,1fr);background:var(--navy);color:#fff}#dm-auto-mockup .stat{padding:28px 15px;text-align:center;border-right:1px solid rgba(255,255,255,.13)}#dm-auto-mockup .stat strong{display:block;color:#e8c987;font-size:28px}#dm-auto-mockup .stat span{font-size:11px;color:rgba(255,255,255,.7)}#dm-auto-mockup .process{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}#dm-auto-mockup .step{border-top:3px solid var(--accent);padding:18px;background:#fff;box-shadow:0 8px 25px rgba(20,40,70,.07)}#dm-auto-mockup .step small{color:var(--accent);font-weight:900}#dm-auto-mockup .step b{display:block;color:var(--navy);margin:9px 0;font-size:15px}#dm-auto-mockup .step p{font-size:11px;color:#7b8592;line-height:1.6}#dm-auto-mockup .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}#dm-auto-mockup .case{border:1px solid #e3e7ed;border-radius:14px;overflow:hidden;background:#fff}#dm-auto-mockup .case-top{height:85px;background:linear-gradient(135deg,var(--navy),color-mix(in srgb,var(--navy) 65%,var(--accent)));padding:17px;color:#fff}#dm-auto-mockup .case-top small{opacity:.7}#dm-auto-mockup .case-top strong{display:block;font-size:19px;margin-top:7px}#dm-auto-mockup .case-body{padding:17px;font-size:11px;color:#657182;line-height:1.7}#dm-auto-mockup .home-faq{max-width:800px;margin:auto}#dm-auto-mockup .home-faq div{padding:17px 5px;border-bottom:1px solid #e0e5eb;color:#263a55;font-size:13px;font-weight:800}#dm-auto-mockup .cta{padding:55px 7%;text-align:center;color:#fff;background:linear-gradient(120deg,#07182f,var(--navy))}#dm-auto-mockup .cta h2{font-size:29px;margin:0 0 10px}#dm-auto-mockup .cta p{color:rgba(255,255,255,.7);margin:0 0 22px}#dm-auto-mockup .footer{background:#071322;color:#aab5c3;padding:34px 7%;font-size:11px;line-height:1.8}#dm-auto-mockup .footer strong{display:block;color:#fff;font-size:16px;margin-bottom:8px}
-#dm-auto-mockup .detail-wrap{display:grid;grid-template-columns:180px 1fr;gap:32px;padding:42px 7%}#dm-auto-mockup .detail-side{border-right:1px solid #e0e5eb;padding-right:20px}#dm-auto-mockup .detail-side b{display:block;color:var(--navy);margin-bottom:12px}#dm-auto-mockup .detail-side span{display:block;padding:7px 0;font-size:11px;color:#6e7987}#dm-auto-mockup .detail-main h2{color:var(--navy);font-size:25px;margin:0 0 11px;padding-bottom:12px;border-bottom:1px solid #8a929c}#dm-auto-mockup .detail-lead{font-size:13px;line-height:1.8;color:#657182;margin-bottom:24px;white-space:pre-line}#dm-auto-mockup .detail-block{padding:21px 0;border-bottom:1px solid #e6e9ee}#dm-auto-mockup .detail-block h3{color:var(--navy);font-size:17px;margin:0 0 9px}#dm-auto-mockup .detail-block p{font-size:12px;color:#697585;line-height:1.8;margin:0;white-space:pre-line}#dm-auto-mockup .detail-table{width:100%;border-collapse:collapse;margin:24px 0}#dm-auto-mockup .detail-table th,#dm-auto-mockup .detail-table td{border:1px solid #e0e4e9;padding:12px;font-size:11px;text-align:left;white-space:pre-line}#dm-auto-mockup .detail-table th{width:25%;background:#f1f3f6;color:var(--navy)}#dm-auto-mockup .detail-action{margin-top:20px;padding:25px;background:#f3f5f8;text-align:center}
-#dm-auto-mockup .dm-editor-page{display:none}#dm-auto-mockup .dm-editor-page.dm-editor-on{display:block}#dm-auto-mockup .site-head{justify-content:center}#dm-auto-mockup .site-nav{display:none!important}
-#dm-auto-mockup{padding:14px;font-size:11px}#dm-auto-mockup .dm-shell{max-width:1580px;grid-template-columns:300px minmax(0,1fr);gap:14px}#dm-auto-mockup .dm-panel{padding:16px;border-radius:14px;top:10px;max-height:calc(100vh - 82px);overflow:auto}#dm-auto-mockup .dm-panel h2{font-size:17px;margin-bottom:3px}#dm-auto-mockup .dm-help{font-size:10px;margin-bottom:10px;line-height:1.4}#dm-auto-mockup .dm-panel details{margin-top:7px;border-radius:8px}#dm-auto-mockup .dm-panel summary{padding:9px 10px;font-size:10px}#dm-auto-mockup .dm-group{padding:0 9px 9px}#dm-auto-mockup .dm-field{margin-top:8px}#dm-auto-mockup .dm-field label{font-size:9px;margin-bottom:4px}#dm-auto-mockup .dm-field input,#dm-auto-mockup .dm-field textarea,#dm-auto-mockup .dm-field select{font-size:10px;padding:7px 8px;border-radius:7px}#dm-auto-mockup .dm-field textarea{height:52px!important}#dm-auto-mockup .dm-row{gap:6px}#dm-auto-mockup .dm-actions{margin-top:10px;gap:6px}#dm-auto-mockup .dm-btn{font-size:10px;padding:9px 7px;border-radius:8px}#dm-auto-mockup .dm-stage{padding:12px;border-radius:14px}#dm-auto-mockup .dm-stage-head{margin-bottom:8px}#dm-auto-mockup .dm-stage-head strong{font-size:12px}#dm-auto-mockup .dm-status{font-size:9px}#dm-auto-mockup .dm-tab{font-size:9px;padding:6px 10px}#dm-auto-mockup .dm-device{padding:7px;border-radius:11px}#dm-auto-mockup .dm-browser{height:25px}#dm-auto-mockup .hero h1{font-size:36px}#dm-auto-mockup .home-section{padding:42px 7%}#dm-auto-mockup .intro-copy h2,#dm-auto-mockup .home-title h2{font-size:24px}#dm-auto-mockup .page-hero h1{font-size:29px}#dm-auto-mockup .detail-main h2{font-size:20px}#dm-auto-mockup .cta h2{font-size:23px}#dm-auto-mockup .dm-designbar{max-width:1580px;margin:0 auto 10px;padding:9px 14px;background:#fff;border:1px solid #dbe2ea;border-radius:11px;box-shadow:0 8px 24px rgba(20,40,70,.07)}#dm-auto-mockup .dm-designbar summary{display:none}#dm-auto-mockup .dm-designbar .dm-group{display:flex;align-items:flex-end;gap:12px;padding:0}#dm-auto-mockup .dm-designbar .dm-row{display:flex;gap:10px}#dm-auto-mockup .dm-designbar .dm-field{margin:0;min-width:115px}#dm-auto-mockup .dm-designbar .dm-field label{font-size:9px;margin-bottom:3px}#dm-auto-mockup .dm-designbar input,#dm-auto-mockup .dm-designbar select{height:29px;padding:3px 7px;font-size:10px}#dm-auto-mockup .dm-designbar input[type=color]{width:74px;padding:2px}#dm-auto-mockup .dm-designbar .dm-note{margin:0 0 5px auto;font-size:9px}
-</style>
-<style id="dm-final-size-adjust">
-#dm-auto-mockup{font-size:13px}
-#dm-auto-mockup .dm-panel{padding:13px;line-height:1.3}
-#dm-auto-mockup .dm-panel h2{font-size:20px;line-height:1.15}
-#dm-auto-mockup .dm-help{font-size:12px;line-height:1.35;margin-bottom:7px}
-#dm-auto-mockup .dm-panel details{margin-top:5px}
-#dm-auto-mockup .dm-panel summary{padding:8px 9px;font-size:12px;line-height:1.25}
-#dm-auto-mockup .dm-group{padding:0 8px 7px}
-#dm-auto-mockup .dm-field{margin-top:6px}
-#dm-auto-mockup .dm-field label{font-size:11px;line-height:1.25;margin-bottom:3px}
-#dm-auto-mockup .dm-field input,#dm-auto-mockup .dm-field textarea,#dm-auto-mockup .dm-field select{font-size:12px;line-height:1.3;padding:6px 7px}
-#dm-auto-mockup .dm-field textarea{height:48px!important}
-#dm-auto-mockup .dm-btn{font-size:12px;padding:8px 10px}
-#dm-auto-mockup .dm-stage-head strong{font-size:14px}
-#dm-auto-mockup .dm-status{font-size:11px}
-#dm-auto-mockup .dm-tab{font-size:11px;padding:6px 11px}
-#dm-auto-mockup .topbar{height:28px;font-size:11px}
-#dm-auto-mockup .site-head{height:58px}
-#dm-auto-mockup .site-logo{font-size:17px}
-#dm-auto-mockup .hero-photo{min-height:355px}
-#dm-auto-mockup .hero h1{font-size:40px;line-height:1.06;margin:10px 0 12px}
-#dm-auto-mockup .hero p{font-size:13px;line-height:1.55}
-#dm-auto-mockup .hero-btns{margin-top:19px}
-#dm-auto-mockup .home-section{padding:34px 7%}
-#dm-auto-mockup .intro-grid{gap:28px}
-#dm-auto-mockup .intro-art{height:220px}
-#dm-auto-mockup .intro-copy h2,#dm-auto-mockup .home-title h2{font-size:27px;line-height:1.15;margin:6px 0 9px}
-#dm-auto-mockup .intro-copy p,#dm-auto-mockup .home-title p{font-size:13px;line-height:1.55}
-#dm-auto-mockup .home-title{margin-bottom:20px}
-#dm-auto-mockup .service-item{padding:17px;min-height:125px}
-#dm-auto-mockup .service-item b{font-size:15px;margin:9px 0 5px}
-#dm-auto-mockup .service-item p{font-size:12px;line-height:1.45}
-#dm-auto-mockup .stat{padding:20px 12px}
-#dm-auto-mockup .stat strong{font-size:26px}
-#dm-auto-mockup .stat span{font-size:11px}
-#dm-auto-mockup .step{padding:14px}
-#dm-auto-mockup .step b{font-size:14px;margin:6px 0}
-#dm-auto-mockup .step p{font-size:11px;line-height:1.4}
-#dm-auto-mockup .case-body{padding:13px;font-size:12px;line-height:1.45}
-#dm-auto-mockup .home-faq div{padding:12px 5px;font-size:13px}
-#dm-auto-mockup .cta{padding:38px 7%}
-#dm-auto-mockup .cta h2{font-size:26px}
-#dm-auto-mockup .footer{padding:24px 7%;font-size:11px;line-height:1.5}
-#dm-auto-mockup .page-hero{padding:36px 7%}
-#dm-auto-mockup .page-hero h1{font-size:32px}
-#dm-auto-mockup .detail-wrap{padding:28px 7%;gap:25px}
-#dm-auto-mockup .detail-main h2{font-size:23px;padding-bottom:8px}
-#dm-auto-mockup .detail-lead{font-size:13px;line-height:1.55;margin-bottom:14px}
-#dm-auto-mockup .detail-block{padding:14px 0}
-#dm-auto-mockup .detail-block h3{font-size:16px;margin-bottom:5px}
-#dm-auto-mockup .detail-block p{font-size:12px;line-height:1.5}
-#dm-auto-mockup .detail-table{margin:16px 0}
-#dm-auto-mockup .detail-table th,#dm-auto-mockup .detail-table td{padding:9px;font-size:12px}
-#dm-auto-mockup .dm-designbar .dm-field label{font-size:11px}
-#dm-auto-mockup .dm-designbar input{font-size:12px}
-#dm-auto-mockup .dm-designbar .dm-extra textarea{height:50px!important;min-height:50px;font-size:12px;line-height:1.3}
-#dm-auto-mockup .dm-designbar .dm-note{font-size:10px}
-#dm-auto-mockup .card i,#dm-auto-mockup .service-item em{background:#f4eadb}
-#dm-auto-mockup .visual{background:linear-gradient(145deg,#6f5938,#07182f)}
-#dm-auto-mockup .case-top{background:linear-gradient(135deg,#16345c,#66513a)}
-#dm-auto-mockup .request-preview{padding:14px 6%;background:#fff6e8;border-bottom:1px solid #ead8bb;color:#493a25;font-size:12px;line-height:1.55;white-space:pre-line}
-#dm-auto-mockup .request-preview strong{display:block;margin-bottom:4px;color:#9a6426;font-size:13px}
+#dm-auto-mockup,#dm-auto-mockup *{box-sizing:border-box}
+#dm-auto-mockup{--accent:#b88a3b;--navy:#112b4d;font-family:Pretendard,sans-serif;color:#172033;background:#eef2f7;padding:24px;min-height:100vh}
+#dm-auto-mockup button,#dm-auto-mockup input,#dm-auto-mockup textarea,#dm-auto-mockup select{font:inherit}
+.dm-shell{max-width:1500px;margin:auto;display:grid;grid-template-columns:370px minmax(0,1fr);gap:22px}
+.dm-panel,.dm-stage{background:#fff;border:1px solid #dde3eb;border-radius:20px;box-shadow:0 12px 36px rgba(20,40,70,.08)}
+.dm-panel{padding:20px;align-self:start;position:sticky;top:18px;max-height:calc(100vh - 36px);overflow-y:auto}
+.dm-panel h2{margin:0 0 4px;font-size:20px}
+.dm-help{margin:0 0 14px;color:#748092;font-size:12px;line-height:1.5}
+.dm-field{margin-top:12px}
+.dm-field label{display:block;margin-bottom:5px;font-size:12px;font-weight:700;color:#2a3a52}
+.dm-field input,.dm-field textarea,.dm-field select{width:100%;border:1px solid #d7dde6;border-radius:9px;padding:9px 11px;color:#202b3c;background:#fff;outline:none;font-size:12px}
+.dm-field textarea{resize:vertical}
+.dm-field input:focus,.dm-field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 14%,transparent)}
+.dm-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dm-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.dm-btn{border:0;border-radius:11px;padding:11px 10px;font-weight:800;cursor:pointer;font-size:13px}
+.dm-generate{background:var(--navy);color:#fff}
+.dm-download{background:#e9eef5;color:#1d304a}
+.dm-stage{padding:18px;min-width:0}
+.dm-stage-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.dm-stage-head strong{font-size:15px}
+.dm-device{padding:10px;background:#202733;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.15)}
+.dm-browser{height:34px;background:#edf1f5;border-radius:9px 9px 0 0;display:flex;align-items:center;gap:6px;padding:0 12px}
+.dm-dot{width:8px;height:8px;border-radius:50%;background:#b7c0cb}
+.dm-url{margin-left:8px;background:#fff;border:1px solid #d8dfe8;border-radius:6px;width:42%;height:20px}
+.dm-canvas{background:#fff;min-height:670px;overflow:hidden}
+.dm-status{font-size:12px;color:#6f7a89}
+/* panel accordion */
+#dm-auto-mockup .dm-panel details{margin-top:6px;border:1px solid #e0e5ec;border-radius:10px;background:#fafbfd}
+#dm-auto-mockup .dm-panel summary{padding:10px 12px;cursor:pointer;font-size:12px;font-weight:900;color:#24364e;list-style:none}
+#dm-auto-mockup .dm-panel summary:after{content:'＋';float:right;color:#8490a0}
+#dm-auto-mockup .dm-panel details[open] summary:after{content:'－'}
+#dm-auto-mockup .dm-group{padding:0 10px 12px}
+#dm-auto-mockup .dm-note{font-size:11px;color:#8791a0;line-height:1.5;margin:6px 0 0}
+/* site preview styles */
+#dm-auto-mockup .topbar{height:32px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:flex-end;gap:20px;padding:0 6%;font-size:10px}
+#dm-auto-mockup .site-head{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid rgba(0,0,0,.07)}
+#dm-auto-mockup .site-logo{font-size:17px;font-weight:900;color:var(--navy)}
+#dm-auto-mockup .site-nav{display:flex;gap:22px;font-size:12px;font-weight:700}
+#dm-auto-mockup .site-nav span:last-child{color:var(--accent)}
+#dm-auto-mockup .hero-photo{min-height:390px;background-size:cover!important;background-position:center!important;padding:68px 7%;display:flex;align-items:center;color:#fff}
+#dm-auto-mockup .hero-in{max-width:690px}
+#dm-auto-mockup .eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;color:#ead7ae}
+#dm-auto-mockup .hero-photo h1{margin:12px 0 16px;font-size:42px;line-height:1.1;letter-spacing:-2px;color:#fff}
+#dm-auto-mockup .hero-photo p{margin:0;max-width:600px;color:rgba(255,255,255,.8);line-height:1.7;font-size:13px}
+#dm-auto-mockup .hero-btns{display:flex;gap:10px;margin-top:24px}
+#dm-auto-mockup .site-btn{padding:11px 18px;border-radius:8px;background:var(--accent);color:#fff;font-size:12px;font-weight:800;display:inline-block}
+#dm-auto-mockup .site-btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.45)}
+#dm-auto-mockup .home-section{padding:48px 7%}
+#dm-auto-mockup .home-section.alt{background:#f5f7fb}
+#dm-auto-mockup .intro-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:38px;align-items:center}
+#dm-auto-mockup .intro-art{height:250px;border-radius:16px;background-size:cover!important;background-position:center!important;box-shadow:0 14px 38px rgba(10,30,60,.15)}
+#dm-auto-mockup .kicker{color:var(--accent);font-size:10px;font-weight:900;letter-spacing:1.8px}
+#dm-auto-mockup .intro-copy h2,#dm-auto-mockup .home-title h2{margin:8px 0 12px;font-size:26px;color:var(--navy);letter-spacing:-1px}
+#dm-auto-mockup .intro-copy p,#dm-auto-mockup .home-title p{color:#6c7786;line-height:1.75;font-size:12px}
+#dm-auto-mockup .home-title{text-align:center;max-width:700px;margin:0 auto 24px}
+#dm-auto-mockup .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+#dm-auto-mockup .service-item{padding:18px;border-radius:13px;border:1px solid #e0e6ee;background:#fff;min-height:130px}
+#dm-auto-mockup .service-item em{display:flex;width:34px;height:34px;align-items:center;justify-content:center;border-radius:9px;background:color-mix(in srgb,var(--accent) 14%,white);color:var(--accent);font-style:normal;font-weight:900;font-size:13px}
+#dm-auto-mockup .service-item b{display:block;color:var(--navy);font-size:14px;margin:10px 0 5px}
+#dm-auto-mockup .service-item p{margin:0;color:#788392;font-size:11px;line-height:1.6}
+#dm-auto-mockup .stat-row{display:grid;grid-template-columns:repeat(4,1fr);background:var(--navy);color:#fff}
+#dm-auto-mockup .stat{padding:22px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}
+#dm-auto-mockup .stat strong{display:block;color:#e8c987;font-size:26px}
+#dm-auto-mockup .stat span{font-size:11px;color:rgba(255,255,255,.7)}
+#dm-auto-mockup .process{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+#dm-auto-mockup .step{border-top:3px solid var(--accent);padding:16px;background:#fff;box-shadow:0 6px 20px rgba(20,40,70,.07)}
+#dm-auto-mockup .step small{color:var(--accent);font-weight:900;font-size:10px}
+#dm-auto-mockup .step b{display:block;color:var(--navy);margin:8px 0 5px;font-size:14px}
+#dm-auto-mockup .step p{font-size:11px;color:#7b8592;line-height:1.55;margin:0}
+#dm-auto-mockup .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+#dm-auto-mockup .case{border:1px solid #e3e7ed;border-radius:13px;overflow:hidden;background:#fff}
+#dm-auto-mockup .case-top{height:82px;background:linear-gradient(135deg,var(--navy),color-mix(in srgb,var(--navy) 65%,var(--accent)));padding:16px;color:#fff}
+#dm-auto-mockup .case-top small{opacity:.7;font-size:10px}
+#dm-auto-mockup .case-top strong{display:block;font-size:17px;margin-top:6px}
+#dm-auto-mockup .case-body{padding:14px;font-size:11px;color:#657182;line-height:1.65}
+#dm-auto-mockup .home-faq{max-width:800px;margin:auto}
+#dm-auto-mockup .home-faq div{padding:14px 5px;border-bottom:1px solid #e0e5eb;color:#263a55;font-size:12px;font-weight:800}
+#dm-auto-mockup .home-faq div small{display:block;margin-top:6px;color:#8993a0;font-weight:400;font-size:11px}
+#dm-auto-mockup .cta{padding:48px 7%;text-align:center;color:#fff;background:linear-gradient(120deg,#07182f,var(--navy))}
+#dm-auto-mockup .cta h2{font-size:26px;margin:0 0 10px}
+#dm-auto-mockup .cta p{color:rgba(255,255,255,.7);margin:0 0 20px;font-size:13px}
+#dm-auto-mockup .footer{background:#071322;color:#aab5c3;padding:28px 7%;font-size:11px;line-height:1.75}
+#dm-auto-mockup .footer strong{display:block;color:#fff;font-size:15px;margin-bottom:7px}
+#dm-auto-mockup .request-preview{padding:12px 6%;background:#fff6e8;border-bottom:1px solid #ead8bb;color:#493a25;font-size:11px;line-height:1.5;white-space:pre-line}
+#dm-auto-mockup .request-preview strong{display:block;margin-bottom:3px;color:#9a6426;font-size:12px}
+@media(max-width:900px){
+  #dm-auto-mockup{padding:12px}
+  .dm-shell{grid-template-columns:1fr}
+  .dm-panel{position:static;max-height:none}
+  .dm-canvas{min-height:580px}
+  #dm-auto-mockup .intro-grid{grid-template-columns:1fr}
+  #dm-auto-mockup .service-grid{grid-template-columns:1fr 1fr}
+  #dm-auto-mockup .process{grid-template-columns:1fr 1fr}
+  #dm-auto-mockup .case-grid{grid-template-columns:1fr}
+  #dm-auto-mockup .stat-row{grid-template-columns:1fr 1fr}
+  .dm-device{overflow-x:auto}
+  .dm-canvas{min-width:680px}
+}
+@media(max-width:600px){
+  #dm-auto-mockup{padding:8px}
+  .dm-shell{gap:10px}
+  .dm-panel{padding:14px;border-radius:14px}
+  .dm-panel h2{font-size:17px}
+  .dm-row{grid-template-columns:1fr}
+  .dm-actions{grid-template-columns:1fr 1fr}
+  .dm-btn{padding:11px 8px;font-size:12px}
+  .dm-stage{padding:10px;border-radius:14px}
+  .dm-stage-head{flex-direction:column;align-items:flex-start;gap:5px}
+  .dm-device{padding:6px;border-radius:12px}
+  .dm-browser{height:26px}
+  .dm-canvas{min-width:600px;min-height:480px}
+}
 </style>
 </head>
 <body style="margin:0">
 <section id="dm-auto-mockup">
  <div class="dm-shell">
   <aside class="dm-panel">
-   <h2>자동 시안 생성기</h2><p class="dm-help">고객 정보를 입력하면 메뉴별 웹 시안이 최대 5장 생성됩니다.</p>
+   <h2>홈 시안 생성기</h2>
+   <p class="dm-help">정보를 입력하고 시안 생성을 누르면 홈 화면 시안이 만들어집니다.</p>
+
    <details open><summary>01. 기본 정보·브랜드</summary><div class="dm-group">
-    <div class="dm-field"><label>사이트 이름</label><input id="dmName" value=""></div><div class="dm-field"><label>영문 이름</label><input id="dmEnglish" value=""></div><div class="dm-field"><label>업종·핵심 서비스</label><input id="dmBusiness" value=""></div><div class="dm-field"><label>대메뉴 — 쉼표 구분</label><input id="dmMenus" value="홈,회사소개,서비스,성공사례,상담신청"></div><div class="dm-row"><div class="dm-field"><label>전화번호</label><input id="dmPhone" value=""></div><div class="dm-field"><label>이메일</label><input id="dmEmail" value=""></div></div><div class="dm-field"><label>주소</label><input id="dmAddress" value=""></div>
+    <div class="dm-field"><label>사이트 이름</label><input id="dmName" value="" placeholder="예) 홍길동컨설팅"></div>
+    <div class="dm-field"><label>영문 이름</label><input id="dmEnglish" value="" placeholder="예) HG CONSULTING"></div>
+    <div class="dm-field"><label>업종·핵심 서비스</label><input id="dmBusiness" value="" placeholder="예) 정책자금 · 경영컨설팅"></div>
+    <div class="dm-field"><label>대메뉴 — 쉼표 구분 (네비게이션에 표시됨)</label><input id="dmMenus" value="" placeholder="예) 홈,회사소개,서비스,성공사례,상담신청"></div>
+    <div class="dm-row">
+     <div class="dm-field"><label>전화번호</label><input id="dmPhone" value="" placeholder="02-0000-0000"></div>
+     <div class="dm-field"><label>이메일</label><input id="dmEmail" value="" placeholder="example@company.com"></div>
+    </div>
+    <div class="dm-field"><label>주소</label><input id="dmAddress" value="" placeholder="서울특별시 ○○구 ○○로 00"></div>
    </div></details>
+
    <details open><summary>02. 메인 비주얼</summary><div class="dm-group">
-    <div class="dm-field"><label>메인 한 줄 문구</label><textarea id="dmFocus" placeholder="예) 고객의 성공을 만드는 전문 파트너"></textarea></div><div class="dm-field"><label>보조 설명</label><textarea id="dmHeroDesc" placeholder="예) 전문가가 기업 상황에 맞게 밀착 지원합니다."></textarea></div><div class="dm-field"><label>메인 이미지 URL</label><input id="dmHeroImage" value="" placeholder="https://..."></div><div class="dm-row"><div class="dm-field"><label>버튼 1</label><input id="dmButton1" value="" placeholder="예) 무료 상담 신청"></div><div class="dm-field"><label>버튼 2</label><input id="dmButton2" value="" placeholder="예) 서비스 보기"></div></div>
+    <div class="dm-field"><label>메인 한 줄 문구</label><textarea id="dmFocus" style="height:52px" placeholder="예) 고객의 성공을 만드는 전문 파트너"></textarea></div>
+    <div class="dm-field"><label>보조 설명</label><textarea id="dmHeroDesc" style="height:52px" placeholder="예) 전문가가 기업 상황에 맞게 밀착 지원합니다."></textarea></div>
+    <div class="dm-field"><label>메인 이미지 URL</label><input id="dmHeroImage" value="" placeholder="https://..."></div>
+    <div class="dm-row">
+     <div class="dm-field"><label>버튼 1</label><input id="dmButton1" value="" placeholder="예) 무료 상담 신청"></div>
+     <div class="dm-field"><label>버튼 2</label><input id="dmButton2" value="" placeholder="예) 서비스 보기"></div>
+    </div>
    </div></details>
+
    <details><summary>03. 회사 소개</summary><div class="dm-group">
-    <div class="dm-field"><label>소개 제목</label><input id="dmIntroTitle" value="" placeholder="예) 고객과 함께 성장하는 전문 파트너"></div><div class="dm-field"><label>소개 내용</label><textarea id="dmIntro" placeholder="회사 소개 내용을 입력하세요."></textarea></div><div class="dm-field"><label>소개 이미지 URL</label><input id="dmIntroImage" value="" placeholder="https://..."></div>
+    <div class="dm-field"><label>소개 제목</label><input id="dmIntroTitle" value="" placeholder="예) 고객과 함께 성장하는 전문 파트너"></div>
+    <div class="dm-field"><label>소개 내용</label><textarea id="dmIntro" style="height:64px" placeholder="회사 소개 내용을 입력하세요."></textarea></div>
+    <div class="dm-field"><label>소개 이미지 URL</label><input id="dmIntroImage" value="" placeholder="https://..."></div>
    </div></details>
+
    <details><summary>04. 서비스·강점</summary><div class="dm-group">
-    <div class="dm-field"><label>서비스 — 한 줄에 제목 | 설명</label><textarea id="dmServices" style="height:120px" placeholder="서비스명 | 서비스 설명&#10;서비스명 | 서비스 설명&#10;서비스명 | 서비스 설명"></textarea></div><div class="dm-field"><label>핵심 수치 — 한 줄에 수치 | 설명</label><textarea id="dmStats" placeholder="000+ | 수치 설명&#10;000+ | 수치 설명&#10;00% | 수치 설명&#10;000+ | 수치 설명"></textarea></div>
+    <p class="dm-note" style="margin-top:4px">서비스 카드 (최대 6개)</p>
+    <div class="dm-field"><label>서비스 1 — 제목</label><input id="dmSv1Title" value="" placeholder="서비스명"></div>
+    <div class="dm-field"><label>서비스 1 — 설명</label><textarea id="dmSv1Desc" style="height:44px" placeholder="서비스 설명을 입력하세요."></textarea></div>
+    <div class="dm-field"><label>서비스 2 — 제목</label><input id="dmSv2Title" value="" placeholder="서비스명"></div>
+    <div class="dm-field"><label>서비스 2 — 설명</label><textarea id="dmSv2Desc" style="height:44px" placeholder="서비스 설명을 입력하세요."></textarea></div>
+    <div class="dm-field"><label>서비스 3 — 제목</label><input id="dmSv3Title" value="" placeholder="서비스명"></div>
+    <div class="dm-field"><label>서비스 3 — 설명</label><textarea id="dmSv3Desc" style="height:44px" placeholder="서비스 설명을 입력하세요."></textarea></div>
+    <div class="dm-field"><label>서비스 4 — 제목</label><input id="dmSv4Title" value="" placeholder="서비스명 (선택)"></div>
+    <div class="dm-field"><label>서비스 4 — 설명</label><textarea id="dmSv4Desc" style="height:44px" placeholder="서비스 설명 (선택)"></textarea></div>
+    <div class="dm-field"><label>서비스 5 — 제목</label><input id="dmSv5Title" value="" placeholder="서비스명 (선택)"></div>
+    <div class="dm-field"><label>서비스 5 — 설명</label><textarea id="dmSv5Desc" style="height:44px" placeholder="서비스 설명 (선택)"></textarea></div>
+    <div class="dm-field"><label>서비스 6 — 제목</label><input id="dmSv6Title" value="" placeholder="서비스명 (선택)"></div>
+    <div class="dm-field"><label>서비스 6 — 설명</label><textarea id="dmSv6Desc" style="height:44px" placeholder="서비스 설명 (선택)"></textarea></div>
+    <p class="dm-note" style="margin-top:14px">핵심 수치 (최대 4개)</p>
+    <div class="dm-row">
+     <div class="dm-field"><label>수치 1</label><input id="dmStat1Val" value="" placeholder="예) 300억+"></div>
+     <div class="dm-field"><label>설명 1</label><input id="dmStat1Lbl" value="" placeholder="예) 누적 지원 규모"></div>
+    </div>
+    <div class="dm-row">
+     <div class="dm-field"><label>수치 2</label><input id="dmStat2Val" value="" placeholder="예) 10년+"></div>
+     <div class="dm-field"><label>설명 2</label><input id="dmStat2Lbl" value="" placeholder="예) 전문 경력"></div>
+    </div>
+    <div class="dm-row">
+     <div class="dm-field"><label>수치 3</label><input id="dmStat3Val" value="" placeholder="예) 98%"></div>
+     <div class="dm-field"><label>설명 3</label><input id="dmStat3Lbl" value="" placeholder="예) 고객 만족도"></div>
+    </div>
+    <div class="dm-row">
+     <div class="dm-field"><label>수치 4</label><input id="dmStat4Val" value="" placeholder="예) 500+"></div>
+     <div class="dm-field"><label>설명 4</label><input id="dmStat4Lbl" value="" placeholder="예) 성공 사례"></div>
+    </div>
    </div></details>
+
    <details><summary>05. 진행 절차·사례</summary><div class="dm-group">
-    <div class="dm-field"><label>진행 절차 — 쉼표 구분</label><textarea id="dmProcess" placeholder="1단계,2단계,3단계,4단계"></textarea></div><div class="dm-field"><label>사례 — 한 줄에 분류 | 제목 | 결과</label><textarea id="dmCases" style="height:105px" placeholder="분류 | 사례 제목 | 결과 설명&#10;분류 | 사례 제목 | 결과 설명&#10;분류 | 사례 제목 | 결과 설명"></textarea></div>
+    <p class="dm-note" style="margin-top:4px">진행 절차 (최대 4단계)</p>
+    <div class="dm-field"><label>STEP 01 — 제목</label><input id="dmSt1Title" value="" placeholder="예) 상담 접수"></div>
+    <div class="dm-field"><label>STEP 01 — 설명</label><textarea id="dmSt1Desc" style="height:44px" placeholder="해당 단계 설명을 입력하세요."></textarea></div>
+    <div class="dm-field"><label>STEP 02 — 제목</label><input id="dmSt2Title" value="" placeholder="예) 기업 진단"></div>
+    <div class="dm-field"><label>STEP 02 — 설명</label><textarea id="dmSt2Desc" style="height:44px" placeholder="해당 단계 설명을 입력하세요."></textarea></div>
+    <div class="dm-field"><label>STEP 03 — 제목</label><input id="dmSt3Title" value="" placeholder="예) 전략 수립"></div>
+    <div class="dm-field"><label>STEP 03 — 설명</label><textarea id="dmSt3Desc" style="height:44px" placeholder="해당 단계 설명을 입력하세요."></textarea></div>
+    <div class="dm-field"><label>STEP 04 — 제목</label><input id="dmSt4Title" value="" placeholder="예) 실행 지원"></div>
+    <div class="dm-field"><label>STEP 04 — 설명</label><textarea id="dmSt4Desc" style="height:44px" placeholder="해당 단계 설명을 입력하세요."></textarea></div>
+    <p class="dm-note" style="margin-top:14px">성공 사례 (최대 3개)</p>
+    <div class="dm-field"><label>사례 1 — 분류</label><input id="dmCs1Cat" value="" placeholder="예) 정책자금"></div>
+    <div class="dm-field"><label>사례 1 — 제목</label><input id="dmCs1Title" value="" placeholder="예) 제조기업 성장 지원"></div>
+    <div class="dm-field"><label>사례 1 — 결과 설명</label><textarea id="dmCs1Desc" style="height:44px" placeholder="사례 결과를 입력하세요."></textarea></div>
+    <div class="dm-field"><label>사례 2 — 분류</label><input id="dmCs2Cat" value="" placeholder="예) 기업 인증"></div>
+    <div class="dm-field"><label>사례 2 — 제목</label><input id="dmCs2Title" value="" placeholder="예) 벤처기업 인증 완료"></div>
+    <div class="dm-field"><label>사례 2 — 결과 설명</label><textarea id="dmCs2Desc" style="height:44px" placeholder="사례 결과를 입력하세요."></textarea></div>
+    <div class="dm-field"><label>사례 3 — 분류</label><input id="dmCs3Cat" value="" placeholder="예) R&D"></div>
+    <div class="dm-field"><label>사례 3 — 제목</label><input id="dmCs3Title" value="" placeholder="예) 기술개발 과제 선정"></div>
+    <div class="dm-field"><label>사례 3 — 결과 설명</label><textarea id="dmCs3Desc" style="height:44px" placeholder="사례 결과를 입력하세요."></textarea></div>
    </div></details>
+
    <details><summary>06. FAQ·상담·푸터</summary><div class="dm-group">
-    <div class="dm-field"><label>FAQ — 한 줄에 질문 | 답변</label><textarea id="dmFaq" style="height:100px" placeholder="자주 묻는 질문? | 답변 내용을 입력하세요.&#10;자주 묻는 질문? | 답변 내용을 입력하세요.&#10;자주 묻는 질문? | 답변 내용을 입력하세요."></textarea></div><div class="dm-field"><label>최종 CTA 제목</label><input id="dmCtaTitle" value="" placeholder="예) 지금 전문가와 상담하세요"></div><div class="dm-field"><label>사업자·푸터 정보</label><textarea id="dmFooter" placeholder="대표명 · 사업자등록번호 · 개인정보처리방침"></textarea></div>
+    <p class="dm-note" style="margin-top:4px">자주 묻는 질문 (최대 5개)</p>
+    <div class="dm-field"><label>Q1 — 질문</label><input id="dmFq1Q" value="" placeholder="예) 상담은 어떻게 진행되나요?"></div>
+    <div class="dm-field"><label>Q1 — 답변</label><textarea id="dmFq1A" style="height:44px" placeholder="답변을 입력하세요."></textarea></div>
+    <div class="dm-field"><label>Q2 — 질문</label><input id="dmFq2Q" value="" placeholder="예) 어떤 서류가 필요한가요?"></div>
+    <div class="dm-field"><label>Q2 — 답변</label><textarea id="dmFq2A" style="height:44px" placeholder="답변을 입력하세요."></textarea></div>
+    <div class="dm-field"><label>Q3 — 질문</label><input id="dmFq3Q" value="" placeholder="예) 진행 기간은 얼마나 걸리나요?"></div>
+    <div class="dm-field"><label>Q3 — 답변</label><textarea id="dmFq3A" style="height:44px" placeholder="답변을 입력하세요."></textarea></div>
+    <div class="dm-field"><label>Q4 — 질문 (선택)</label><input id="dmFq4Q" value="" placeholder="추가 질문 (선택)"></div>
+    <div class="dm-field"><label>Q4 — 답변 (선택)</label><textarea id="dmFq4A" style="height:44px" placeholder="답변을 입력하세요."></textarea></div>
+    <div class="dm-field"><label>Q5 — 질문 (선택)</label><input id="dmFq5Q" value="" placeholder="추가 질문 (선택)"></div>
+    <div class="dm-field"><label>Q5 — 답변 (선택)</label><textarea id="dmFq5A" style="height:44px" placeholder="답변을 입력하세요."></textarea></div>
+    <p class="dm-note" style="margin-top:14px">CTA·푸터</p>
+    <div class="dm-field"><label>최종 CTA 제목</label><input id="dmCtaTitle" value="" placeholder="예) 지금 전문가와 상담하세요"></div>
+    <div class="dm-field"><label>CTA 설명 문구</label><textarea id="dmCtaDesc" style="height:44px" placeholder="예) 부담 없이 문의주시면 맞춤 안내드립니다."></textarea></div>
+    <div class="dm-field"><label>CTA 버튼 문구</label><input id="dmCtaBtn" value="" placeholder="예) 무료 상담 신청하기"></div>
+    <div class="dm-field"><label>사업자·푸터 정보</label><textarea id="dmFooter" style="height:52px" placeholder="대표명 · 사업자등록번호 000-00-00000 · 개인정보처리방침"></textarea></div>
    </div></details>
-   <details><summary>07. 상세 메뉴 1</summary><div class="dm-group"><div class="dm-field"><label>페이지 제목</label><input id="dmP2Title" value="" placeholder="예) 회사소개"></div><div class="dm-field"><label>상단 작은 문구</label><input id="dmP2Eyebrow" value="" placeholder="예) ABOUT US"></div><div class="dm-field"><label>페이지 소개문</label><textarea id="dmP2Lead" placeholder="페이지 소개 문구를 입력하세요."></textarea></div><div class="dm-field"><label>본문 — 한 줄에 소제목 | 내용</label><textarea id="dmP2Blocks" style="height:110px" placeholder="소제목 | 내용&#10;소제목 | 내용&#10;소제목 | 내용"></textarea></div><div class="dm-field"><label>정보표 — 한 줄에 항목 | 내용</label><textarea id="dmP2Table" placeholder="항목 | 내용&#10;항목 | 내용&#10;항목 | 내용"></textarea></div><div class="dm-field"><label>하단 버튼</label><input id="dmP2Button" value="" placeholder="예) 상담 신청하기"></div></div></details>
-   <details><summary>08. 상세 메뉴 2</summary><div class="dm-group"><div class="dm-field"><label>페이지 제목</label><input id="dmP3Title" value="" placeholder="예) 서비스"></div><div class="dm-field"><label>상단 작은 문구</label><input id="dmP3Eyebrow" value="" placeholder="예) OUR SERVICES"></div><div class="dm-field"><label>페이지 소개문</label><textarea id="dmP3Lead" placeholder="페이지 소개 문구를 입력하세요."></textarea></div><div class="dm-field"><label>본문 — 한 줄에 소제목 | 내용</label><textarea id="dmP3Blocks" style="height:110px" placeholder="소제목 | 내용&#10;소제목 | 내용&#10;소제목 | 내용"></textarea></div><div class="dm-field"><label>정보표 — 한 줄에 항목 | 내용</label><textarea id="dmP3Table" placeholder="항목 | 내용&#10;항목 | 내용&#10;항목 | 내용"></textarea></div><div class="dm-field"><label>하단 버튼</label><input id="dmP3Button" value="" placeholder="예) 상담 신청하기"></div></div></details>
-   <details><summary>09. 상세 메뉴 3</summary><div class="dm-group"><div class="dm-field"><label>페이지 제목</label><input id="dmP4Title" value="" placeholder="예) 성공사례"></div><div class="dm-field"><label>상단 작은 문구</label><input id="dmP4Eyebrow" value="" placeholder="예) SUCCESS CASE"></div><div class="dm-field"><label>페이지 소개문</label><textarea id="dmP4Lead" placeholder="페이지 소개 문구를 입력하세요."></textarea></div><div class="dm-field"><label>본문 — 한 줄에 소제목 | 내용</label><textarea id="dmP4Blocks" style="height:110px" placeholder="소제목 | 내용&#10;소제목 | 내용&#10;소제목 | 내용"></textarea></div><div class="dm-field"><label>정보표 — 한 줄에 항목 | 내용</label><textarea id="dmP4Table" placeholder="항목 | 내용&#10;항목 | 내용&#10;항목 | 내용"></textarea></div><div class="dm-field"><label>하단 버튼</label><input id="dmP4Button" value="" placeholder="예) 상담 신청하기"></div></div></details>
-   <details><summary>10. 상세 메뉴 4</summary><div class="dm-group"><div class="dm-field"><label>페이지 제목</label><input id="dmP5Title" value="" placeholder="예) 상담신청"></div><div class="dm-field"><label>상단 작은 문구</label><input id="dmP5Eyebrow" value="" placeholder="예) CONTACT US"></div><div class="dm-field"><label>페이지 소개문</label><textarea id="dmP5Lead" placeholder="페이지 소개 문구를 입력하세요."></textarea></div><div class="dm-field"><label>본문 — 한 줄에 소제목 | 내용</label><textarea id="dmP5Blocks" style="height:110px" placeholder="소제목 | 내용&#10;소제목 | 내용&#10;소제목 | 내용"></textarea></div><div class="dm-field"><label>입력폼 항목 — 한 줄에 항목 | 안내문</label><textarea id="dmP5Table" placeholder="항목명 | 안내 문구&#10;항목명 | 안내 문구&#10;항목명 | 안내 문구"></textarea></div><div class="dm-field"><label>하단 버튼</label><input id="dmP5Button" value="" placeholder="예) 상담 신청하기"></div></div></details>
-   <details><summary>디자인·추가 요청</summary><div class="dm-group"><div class="dm-field dm-extra"><label>추가 요청사항 — 현재 입력 틀에 없는 내용을 자유롭게 작성해 주세요</label><textarea id="dmExtraRequest" placeholder="원하는 기능, 구성, 디자인, 참고사항 등을 길게 작성할 수 있습니다."></textarea></div><div class="dm-row"><div class="dm-field"><label>메인 색상</label><input id="dmColor" type="color" value="#16345c"></div><div class="dm-field"><label>강조 색상</label><input id="dmAccent" type="color" value="#b47a32"></div></div><p class="dm-note">메인 1개와 상세 화면 4개가 생성됩니다.</p></div></details>
-   <div class="dm-actions"><button class="dm-btn dm-generate" id="dmGenerate">시안 생성</button><button class="dm-btn dm-download" id="dmDownload">현재 화면 저장</button></div>
+
+   <details><summary>디자인·추가 요청</summary><div class="dm-group">
+    <div class="dm-field"><label>추가 요청사항</label><textarea id="dmExtraRequest" style="height:60px" placeholder="원하는 기능, 구성, 디자인, 참고사항 등을 자유롭게 작성해 주세요."></textarea></div>
+    <div class="dm-row">
+     <div class="dm-field"><label>메인 색상</label><input id="dmColor" type="color" value="#16345c"></div>
+     <div class="dm-field"><label>강조 색상</label><input id="dmAccent" type="color" value="#b47a32"></div>
+    </div>
+   </div></details>
+
+   <div class="dm-actions">
+    <button class="dm-btn dm-generate" id="dmGenerate">시안 생성</button>
+    <button class="dm-btn dm-download" id="dmDownload">화면 저장</button>
+   </div>
   </aside>
+
   <main class="dm-stage">
-   <div class="dm-stage-head"><strong>생성된 화면</strong><span class="dm-status" id="dmStatus">입력 후 시안 생성을 눌러주세요.</span></div>
-   <div class="dm-tabs" id="dmTabs"></div>
-   <div class="dm-device"><div class="dm-browser"><i class="dm-dot"></i><i class="dm-dot"></i><i class="dm-dot"></i><span class="dm-url"></span></div><div class="dm-canvas" id="dmCanvas"><div class="dm-empty">화면 예시가 이곳에 표시됩니다.</div></div></div>
+   <div class="dm-stage-head">
+    <strong>생성된 홈 화면</strong>
+    <span class="dm-status" id="dmStatus">입력 후 시안 생성을 눌러주세요.</span>
+   </div>
+   <div class="dm-device">
+    <div class="dm-browser"><i class="dm-dot"></i><i class="dm-dot"></i><i class="dm-dot"></i><span class="dm-url"></span></div>
+    <div class="dm-canvas" id="dmCanvas"><div style="text-align:center;padding:200px 20px;color:#8993a1">화면 예시가 이곳에 표시됩니다.</div></div>
+   </div>
   </main>
  </div>
 </section>
 <script>
 (function(){
- const $=s=>document.querySelector(s), esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); let pages=[],current=0;
- const designPanel=$('#dmColor').closest('details');
- const panelDetails=[...document.querySelectorAll('.dm-panel details')].filter(d=>d!==designPanel);
- const editorPage=d=>d.querySelector('#dmP2Title')?1:d.querySelector('#dmP3Title')?2:d.querySelector('#dmP4Title')?3:d.querySelector('#dmP5Title')?4:0;
- function showEditor(i){panelDetails.forEach(d=>{const visible=editorPage(d)===i;d.style.display=visible?'block':'none';if(visible)d.open=true});const title=$('.dm-panel h2');if(title)title.textContent=i===0?'메인 화면 입력':`${pages[i]?.name||`상세 메뉴 ${i}`} 입력`;const help=$('.dm-panel .dm-help');if(help)help.textContent=i===0?'메인 화면에 들어갈 내용을 입력하세요.':'현재 선택한 상세 화면의 모든 입력 항목입니다.'}
- const rows=(id,sep='|')=>$(id).value.split('\n').map(x=>x.split(sep).map(v=>v.trim())).filter(x=>x[0]);
- const detailData=n=>({title:$(`#dmP${n}Title`).value.trim(),eyebrow:$(`#dmP${n}Eyebrow`).value.trim(),lead:$(`#dmP${n}Lead`).value.trim(),blocks:rows(`#dmP${n}Blocks`),table:rows(`#dmP${n}Table`),button:$(`#dmP${n}Button`).value.trim()});
- function data(){return{name:$('#dmName').value.trim()||'회사명',eng:$('#dmEnglish').value.trim()||'COMPANY NAME',business:$('#dmBusiness').value.trim()||'서비스 분야',focus:$('#dmFocus').value.trim(),heroDesc:$('#dmHeroDesc').value.trim(),heroImage:$('#dmHeroImage').value.trim(),button1:$('#dmButton1').value.trim(),button2:$('#dmButton2').value.trim(),introTitle:$('#dmIntroTitle').value.trim(),intro:$('#dmIntro').value.trim(),introImage:$('#dmIntroImage').value.trim(),phone:$('#dmPhone').value.trim(),email:$('#dmEmail').value.trim(),address:$('#dmAddress').value.trim(),services:rows('#dmServices'),stats:rows('#dmStats'),process:$('#dmProcess').value.split(',').map(x=>x.trim()).filter(Boolean),cases:rows('#dmCases'),faq:rows('#dmFaq'),cta:$('#dmCtaTitle').value.trim(),footer:$('#dmFooter').value.trim(),extra:$('#dmExtraRequest').value.trim(),details:[2,3,4,5].map(detailData),menus:$('#dmMenus').value.split(',').map(x=>x.trim()).filter(Boolean).slice(0,5),count:5,navy:$('#dmColor').value,accent:$('#dmAccent').value}}
- function head(d){const request=d.extra?`<section class="request-preview"><strong>추가 요청사항</strong>${esc(d.extra)}</section>`:'';return `${request}<div class="topbar"><span>${esc(d.phone)}</span><span>${esc(d.email)}</span></div><header class="site-head"><b class="site-logo">${esc(d.eng)}</b><nav class="site-nav">${d.menus.map(x=>`<span>${esc(x)}</span>`).join('')}</nav></header>`}
- function foot(d){return `<section class="cta"><h2>${esc(d.cta)}</h2><p>${esc(d.heroDesc)}</p><span class="site-btn">${esc(d.button1)}</span></section><footer class="footer"><strong>${esc(d.name)}</strong>${esc(d.address)}<br>${esc(d.phone)} · ${esc(d.email)}<br>${esc(d.footer)}</footer>`}
- function home(d){return `${head(d)}<section class="hero hero-photo" style="background:linear-gradient(100deg,rgba(5,18,38,.92),rgba(10,35,68,.43)),url('${esc(d.heroImage)}')"><div class="hero-in"><div class="eyebrow">${esc(d.eng)}</div><h1>${esc(d.focus)}</h1><p>${esc(d.heroDesc)}</p><div class="hero-btns"><span class="site-btn">${esc(d.button1)}</span><span class="site-btn ghost">${esc(d.button2)}</span></div></div></section><section class="home-section intro-grid"><div class="intro-art" style="background:linear-gradient(rgba(7,24,47,.08),rgba(7,24,47,.08)),url('${esc(d.introImage)}')"></div><div class="intro-copy"><span class="kicker">ABOUT COMPANY</span><h2>${esc(d.introTitle)}</h2><p>${esc(d.intro)}</p><span class="site-btn">회사소개 보기</span></div></section><section class="home-section alt"><div class="home-title"><span class="kicker">OUR SERVICES</span><h2>${esc(d.name)}의 전문 서비스</h2><p>${esc(d.business)} 분야에 필요한 진단부터 실행까지 체계적으로 지원합니다.</p></div><div class="service-grid">${d.services.slice(0,6).map((x,i)=>`<article class="service-item"><em>0${i+1}</em><b>${esc(x[0])}</b><p>${esc(x[1]||'기업별 맞춤 서비스를 제공합니다.')}</p></article>`).join('')}</div></section><section class="stat-row">${d.stats.slice(0,4).map(x=>`<div class="stat"><strong>${esc(x[0])}</strong><span>${esc(x[1]||'성과 지표')}</span></div>`).join('')}</section><section class="home-section"><div class="home-title"><span class="kicker">PROCESS</span><h2>체계적인 진행 절차</h2></div><div class="process">${d.process.slice(0,4).map((x,i)=>`<div class="step"><small>STEP 0${i+1}</small><b>${esc(x)}</b><p>담당 전문가가 필요한 내용을 확인하고 단계별로 안내합니다.</p></div>`).join('')}</div></section><section class="home-section alt"><div class="home-title"><span class="kicker">SUCCESS CASE</span><h2>주요 컨설팅 사례</h2></div><div class="case-grid">${d.cases.slice(0,3).map(x=>`<article class="case"><div class="case-top"><small>${esc(x[0])}</small><strong>${esc(x[1]||'성공 사례')}</strong></div><div class="case-body">${esc(x[2]||'맞춤 컨설팅을 통해 목표를 달성했습니다.')}<br><b style="color:var(--accent)">자세히 보기 →</b></div></article>`).join('')}</div></section><section class="home-section"><div class="home-title"><span class="kicker">FAQ</span><h2>자주 묻는 질문</h2></div><div class="home-faq">${d.faq.slice(0,5).map(x=>`<div>Q. ${esc(x[0])}<span style="float:right">＋</span><small style="display:block;margin-top:7px;color:#8993a0;font-weight:400">${esc(x[1]||'상담 시 자세히 안내드립니다.')}</small></div>`).join('')}</div></section>${foot(d)}`}
- function inner(d,index,menu){const p=d.details[index-1]||{title:menu,eyebrow:d.eng,lead:'',blocks:[],table:[],button:d.button1};const pageTitle=p.title||menu;return `${head(d)}<section class="page-hero"><small>${esc(p.eyebrow)}</small><h1>${esc(pageTitle)}</h1><p>${esc(p.lead)}</p></section><section class="detail-wrap"><aside class="detail-side"><b>${esc(pageTitle)}</b>${d.menus.slice(1).map(x=>`<span>${esc(x)}</span>`).join('')}</aside><main class="detail-main"><h2>${esc(pageTitle)}</h2><p class="detail-lead">${esc(p.lead)}</p>${p.blocks.map(x=>`<article class="detail-block"><h3>${esc(x[0])}</h3><p>${esc(x[1]||'')}</p></article>`).join('')}<table class="detail-table"><tbody>${p.table.map(x=>`<tr><th>${esc(x[0])}</th><td>${esc(x[1]||'')}</td></tr>`).join('')}</tbody></table><div class="detail-action"><span class="site-btn">${esc(p.button)}</span></div></main></section>${foot(d)}`}
- function build(){const d=data();document.querySelector('#dm-auto-mockup').style.setProperty('--navy',d.navy);document.querySelector('#dm-auto-mockup').style.setProperty('--accent',d.accent);let menus=d.menus.length?d.menus:['홈','회사소개','서비스','성공사례','상담신청'];while(menus.length<5)menus.push(`메뉴 ${menus.length+1}`);pages=menus.slice(0,d.count).map((m,i)=>({name:i===0?m:(d.details[i-1]?.title||m),html:i===0?home(d):inner(d,i,m)}));current=0;renderTabs();show(0);$('#dmStatus').textContent=`${pages.length}개 화면이 생성되었습니다.`}
- function renderTabs(){$('#dmTabs').innerHTML=pages.map((p,i)=>`<button class="dm-tab ${i===current?'on':''}" data-i="${i}">${i+1}. ${esc(p.name)}</button>`).join('');document.querySelectorAll('.dm-tab').forEach(b=>b.onclick=()=>show(+b.dataset.i))}
- function show(i){current=i;$('#dmCanvas').innerHTML=pages[i]?.html||'<div class="dm-empty">생성된 화면이 없습니다.</div>';renderTabs();showEditor(i)}
- function syncRequestPreview(){const canvas=$('#dmCanvas'),value=$('#dmExtraRequest').value.trim();if(!canvas)return;let note=canvas.querySelector('.request-preview');if(!value){if(note)note.remove();return}if(!note){note=document.createElement('section');note.className='request-preview';canvas.prepend(note)}note.textContent='';const title=document.createElement('strong');title.textContent='추가 요청사항';note.append(title,document.createTextNode(value))}
- async function download(){if(!pages.length)return alert('먼저 시안을 생성해주세요.');if(typeof html2canvas==='undefined')return alert('이미지 저장 모듈을 불러오지 못했습니다.');const status=$('#dmStatus'),target=$('#dmCanvas'),filename=`${data().name}-${pages[current].name}-시안.png`;let fileHandle=null;if('showSaveFilePicker'in window){try{fileHandle=await window.showSaveFilePicker({suggestedName:filename,types:[{description:'PNG 이미지',accept:{'image/png':['.png']}}]})}catch(pickerError){if(pickerError.name==='AbortError'){status.textContent='저장을 취소했습니다.';return}console.warn('저장창 사용 불가, 일반 다운로드로 전환합니다.',pickerError)}}status.textContent='이미지를 만드는 중입니다…';try{let canvas;try{canvas=await html2canvas(target,{scale:1.5,useCORS:true,allowTaint:false,backgroundColor:'#ffffff',logging:false,imageTimeout:12000})}catch(firstError){canvas=await html2canvas(target,{scale:1,useCORS:false,allowTaint:false,backgroundColor:'#ffffff',logging:false,onclone:doc=>{doc.querySelectorAll('.hero-photo,.intro-art').forEach(el=>{el.style.backgroundImage='none';el.style.backgroundColor='#16345c'})}})}const blob=await new Promise((resolve,reject)=>canvas.toBlob(value=>value?resolve(value):reject(new Error('PNG 변환 실패')),'image/png'));if(fileHandle){const writable=await fileHandle.createWritable();await writable.write(blob);await writable.close()}else{const url=URL.createObjectURL(blob),a=document.createElement('a');a.download=filename;a.href=url;a.style.display='none';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000)}status.textContent='현재 화면을 PNG로 저장했습니다.'}catch(error){console.error(error);status.textContent='저장 실패 — 다시 시도해 주세요.';alert(`이미지 저장에 실패했습니다.\n${error.message||'브라우저 다운로드 권한을 확인해 주세요.'}`)}}
- if(designPanel){designPanel.open=true;designPanel.classList.add('dm-designbar');const topGroup=designPanel.querySelector('.dm-group');const actions=document.querySelector('.dm-actions');if(topGroup&&actions)topGroup.append(actions);document.querySelector('#dm-auto-mockup').prepend(designPanel)}
- $('#dmGenerate').onclick=build;$('#dmDownload').onclick=()=>{syncRequestPreview();download()};$('#dmExtraRequest').addEventListener('input',syncRequestPreview);build();
+ const $=s=>document.querySelector(s);
+ const val=id=>{const el=$(id);return el?el.value.trim():''};
+ const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+
+ function data(){
+  const menus=val('#dmMenus').split(',').map(x=>x.trim()).filter(Boolean);
+  const svs=[[1],[2],[3],[4],[5],[6]].map(([n])=>[val(`#dmSv${n}Title`),val(`#dmSv${n}Desc`)]).filter(x=>x[0]);
+  const stats=[[1],[2],[3],[4]].map(([n])=>[val(`#dmStat${n}Val`),val(`#dmStat${n}Lbl`)]).filter(x=>x[0]);
+  const steps=[[1],[2],[3],[4]].map(([n])=>({title:val(`#dmSt${n}Title`),desc:val(`#dmSt${n}Desc`)})).filter(x=>x.title);
+  const cases=[[1],[2],[3]].map(([n])=>({cat:val(`#dmCs${n}Cat`),title:val(`#dmCs${n}Title`),desc:val(`#dmCs${n}Desc`)})).filter(x=>x.title);
+  const faqs=[[1],[2],[3],[4],[5]].map(([n])=>({q:val(`#dmFq${n}Q`),a:val(`#dmFq${n}A`)})).filter(x=>x.q);
+  return{
+   name:val('#dmName')||'회사명',
+   eng:val('#dmEnglish')||'COMPANY NAME',
+   business:val('#dmBusiness')||'서비스 분야',
+   menus:menus.length?menus:['홈','회사소개','서비스','성공사례','상담신청'],
+   phone:val('#dmPhone'),email:val('#dmEmail'),address:val('#dmAddress'),
+   focus:val('#dmFocus'),heroDesc:val('#dmHeroDesc'),heroImage:val('#dmHeroImage'),
+   button1:val('#dmButton1'),button2:val('#dmButton2'),
+   introTitle:val('#dmIntroTitle'),intro:val('#dmIntro'),introImage:val('#dmIntroImage'),
+   svs,stats,steps,cases,faqs,
+   cta:val('#dmCtaTitle'),ctaDesc:val('#dmCtaDesc'),ctaBtn:val('#dmCtaBtn')||val('#dmButton1'),
+   footer:val('#dmFooter'),
+   extra:val('#dmExtraRequest'),
+   navy:$('#dmColor').value,accent:$('#dmAccent').value
+  };
+ }
+
+ function buildHTML(d){
+  const request=d.extra?`<section class="request-preview"><strong>추가 요청사항</strong>${esc(d.extra)}</section>`:'';
+  const topbar=`<div class="topbar"><span>${esc(d.phone)}</span><span>${esc(d.email)}</span></div>`;
+  const header=`<header class="site-head"><b class="site-logo">${esc(d.eng)}</b><nav class="site-nav">${d.menus.map(x=>`<span>${esc(x)}</span>`).join('')}</nav></header>`;
+  const hero=`<section class="hero-photo" style="background:linear-gradient(100deg,rgba(5,18,38,.92),rgba(10,35,68,.43)),url('${esc(d.heroImage)}')"><div class="hero-in"><div class="eyebrow">${esc(d.eng)}</div><h1>${esc(d.focus)||'메인 문구를 입력하세요'}</h1><p>${esc(d.heroDesc)}</p><div class="hero-btns">${d.button1?`<span class="site-btn">${esc(d.button1)}</span>`:''}${d.button2?`<span class="site-btn ghost">${esc(d.button2)}</span>`:''}</div></div></section>`;
+  const intro=(d.introTitle||d.intro)?`<section class="home-section intro-grid"><div class="intro-art" style="background:linear-gradient(rgba(7,24,47,.08),rgba(7,24,47,.08)),url('${esc(d.introImage)}')"></div><div class="intro-copy"><span class="kicker">ABOUT COMPANY</span><h2>${esc(d.introTitle)}</h2><p>${esc(d.intro)}</p><span class="site-btn">회사소개 보기</span></div></section>`:'';
+  const services=d.svs.length?`<section class="home-section alt"><div class="home-title"><span class="kicker">OUR SERVICES</span><h2>${esc(d.name)}의 전문 서비스</h2><p>${esc(d.business)} 분야에 필요한 진단부터 실행까지 체계적으로 지원합니다.</p></div><div class="service-grid">${d.svs.slice(0,6).map((x,i)=>`<article class="service-item"><em>0${i+1}</em><b>${esc(x[0])}</b><p>${esc(x[1])}</p></article>`).join('')}</div></section>`:'';
+  const stats=d.stats.length?`<section class="stat-row">${d.stats.slice(0,4).map(x=>`<div class="stat"><strong>${esc(x[0])}</strong><span>${esc(x[1])}</span></div>`).join('')}</section>`:'';
+  const process=d.steps.length?`<section class="home-section"><div class="home-title"><span class="kicker">PROCESS</span><h2>체계적인 진행 절차</h2></div><div class="process">${d.steps.slice(0,4).map((x,i)=>`<div class="step"><small>STEP 0${i+1}</small><b>${esc(x.title)}</b><p>${esc(x.desc)}</p></div>`).join('')}</div></section>`:'';
+  const cases=d.cases.length?`<section class="home-section alt"><div class="home-title"><span class="kicker">SUCCESS CASE</span><h2>주요 성공 사례</h2></div><div class="case-grid">${d.cases.slice(0,3).map(x=>`<article class="case"><div class="case-top"><small>${esc(x.cat)}</small><strong>${esc(x.title)}</strong></div><div class="case-body">${esc(x.desc)}<br><b style="color:var(--accent)">자세히 보기 →</b></div></article>`).join('')}</div></section>`:'';
+  const faq=d.faqs.length?`<section class="home-section"><div class="home-title"><span class="kicker">FAQ</span><h2>자주 묻는 질문</h2></div><div class="home-faq">${d.faqs.slice(0,5).map(x=>`<div>Q. ${esc(x.q)}<span style="float:right">＋</span><small>${esc(x.a)}</small></div>`).join('')}</div></section>`:'';
+  const cta=`<section class="cta"><h2>${esc(d.cta)||'지금 바로 상담하세요'}</h2><p>${esc(d.ctaDesc||d.heroDesc)}</p><span class="site-btn">${esc(d.ctaBtn||d.button1||'상담 신청')}</span></section>`;
+  const footer=`<footer class="footer"><strong>${esc(d.name)}</strong>${esc(d.address)}${d.address?'<br>':''}${esc(d.phone)}${d.phone&&d.email?' · ':''}${esc(d.email)}<br>${esc(d.footer)}</footer>`;
+  return request+topbar+header+hero+intro+services+stats+process+cases+faq+cta+footer;
+ }
+
+ function build(){
+  const d=data();
+  document.querySelector('#dm-auto-mockup').style.setProperty('--navy',d.navy);
+  document.querySelector('#dm-auto-mockup').style.setProperty('--accent',d.accent);
+  $('#dmCanvas').innerHTML=buildHTML(d);
+  $('#dmStatus').textContent='홈 화면 시안이 생성되었습니다.';
+ }
+
+ async function download(){
+  if(!$('#dmCanvas').innerHTML||$('#dmCanvas').querySelector('div[style*="padding:200px"]'))return alert('먼저 시안을 생성해주세요.');
+  if(typeof html2canvas==='undefined')return alert('이미지 저장 모듈을 불러오지 못했습니다.');
+  const status=$('#dmStatus'),target=$('#dmCanvas'),name=val('#dmName')||'시안';
+  const filename=`${name}-홈-시안.png`;
+  status.textContent='이미지를 만드는 중입니다…';
+  try{
+   let canvas;
+   try{canvas=await html2canvas(target,{scale:1.5,useCORS:true,allowTaint:false,backgroundColor:'#ffffff',logging:false,imageTimeout:12000})}
+   catch(e){canvas=await html2canvas(target,{scale:1,useCORS:false,backgroundColor:'#ffffff',logging:false,onclone:doc=>{doc.querySelectorAll('.hero-photo,.intro-art').forEach(el=>{el.style.backgroundImage='none';el.style.backgroundColor='#16345c'})}})}
+   const blob=await new Promise((res,rej)=>canvas.toBlob(v=>v?res(v):rej(new Error('PNG 변환 실패')),'image/png'));
+   const url=URL.createObjectURL(blob),a=document.createElement('a');
+   a.download=filename;a.href=url;a.style.display='none';document.body.appendChild(a);a.click();a.remove();
+   setTimeout(()=>URL.revokeObjectURL(url),5000);
+   status.textContent='홈 화면을 PNG로 저장했습니다.';
+  }catch(err){status.textContent='저장 실패 — 다시 시도해 주세요.';alert(`저장 실패: ${err.message}`)}
+ }
+
+ $('#dmGenerate').onclick=build;
+ $('#dmDownload').onclick=download;
 })();
 </script>
 </body>
